@@ -44,10 +44,10 @@ const limiter = rateLimit({
   legacyHeaders: false,
   keyGenerator: (req: any) => req.ip,
 });
-app.use(limiter);
+app.use(limiter); 
 
 app.get("/api", (req, res) => {
-  res.send({ message: "Welcome to api-gateway!" });
+  res.send({ message: "Welcome to api-gateway! Good to know" });
 });
 
 app.use("/gateway-health", async (req, res) => {

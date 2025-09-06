@@ -1,14 +1,35 @@
-import express from 'express';
-
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 6001;
-
+import express from "express";
+import cors from "cors";
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send({ 'message': 'Hello API'});
+app.use(
+  cors({
+    origin: [
+      "http://localhost:4200",
+      "http://localhost:3000",
+      "http://localhost:8080",
+      "http://localhost:5173",
+      "http://localhost:3001",
+    ],
+    allowedHeaders: [
+      "Origin",
+      "X-Requested-With",
+      "Content-Type",
+      "Accept",
+      "Authorization",
+    ],
+    credentials: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send({ message: "Hello API" });
 });
 
-app.listen(port, host, () => {
-    console.log(`[ ready ] http://${host}:${port}`);
+const port = process.env.PORT || 6001;
+const server = app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}/api`);
+});
+server.on("error", (error) => {
+  console.log("Error: ", error);
 });
