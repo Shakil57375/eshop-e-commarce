@@ -1,5 +1,7 @@
+import { errorMiddleware } from "./../../../packages/error-handler/error-middleware";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(
@@ -22,9 +24,13 @@ app.use(
   })
 );
 
+app.use(express.json());
+app.use(cookieParser());
 app.get("/", (req, res) => {
   res.send({ message: "Hello API" });
 });
+
+app.use(errorMiddleware);
 
 const port = process.env.PORT || 6001;
 const server = app.listen(port, () => {
