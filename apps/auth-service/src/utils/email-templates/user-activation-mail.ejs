@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eshop Activation Email</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style type="text/css">
+    /* Base */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333333;
+    }
+    a {
+      color: #0070f3;
+      text-decoration: none;
+    }
+    .email-wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .email-header {
+      background: #0070f3;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .email-body {
+      padding: 24px;
+    }
+    .email-body p {
+      margin: 0 0 15px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #0070f3;
+      color: #ffffff !important;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .email-footer {
+      background: #f6f6f6;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666666;
+    }
+    .email-footer a {
+      color: #0070f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <!-- Header -->
+    <div class="email-header">
+      Eshop Account Activation
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p>Hello,</p>
+      <p>Thank you for registering with <strong>Eshop</strong>. Please confirm your email address to activate your account.</p>
+      
+      <!-- Activation Button -->
+      <p style="text-align: center;">
+        <a href="<%= activationLink %>" class="button">Activate Account</a>
+      </p>
+
+      <p>If you did not register for an Eshop account, please ignore this email.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>If you have any questions, don’t hesitate to contact us at 
+        <a href="mailto:support@becodemy.com">support@becodemy.com</a>.
+      </p>
+      <p>&copy; <%= new Date().getFullYear() %> Eshop. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
